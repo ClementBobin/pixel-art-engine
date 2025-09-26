@@ -24,7 +24,11 @@ function RotatingImage({ src, pixelated = true, speed = 0.01 }) {
     <mesh ref={meshRef}>
       {/* A plane to display the image */}
       <planeGeometry args={[3, 3]} />
-      <meshBasicMaterial map={texture} transparent />
+      <meshBasicMaterial
+        map={texture}
+        transparent
+        side={THREE.DoubleSide}  // ✅ show both sides
+      />
     </mesh>
   );
 }
