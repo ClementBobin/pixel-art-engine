@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import PixelImage3D from "./lib/PixelImage3D";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 import {
   PixelArtDiiage1,
@@ -31,8 +33,14 @@ const works = [
   { id: 8, team: "Les petis poulains", title: "Pari d'Avenir", src: PixelArtDiiage8, description: "Cette oeuvre est soit un une critique de l'avenir incertain dû à l'intelligence articiciel, soit une moquerie des gens qui critique ce dernier en pensant que c'est une fianlité. à méditer", authors: [] }
 ];
 
-// Playlist
-const playlist = [song1, song2, song3, song4, song5];
+// Playlist with song names for display
+const playlist = [
+  { src: song1, name: "Energetic Chiptune" },
+  { src: song2, name: "Exploration Adventure" },
+  { src: song3, name: "Pixel Dreams" },
+  { src: song4, name: "Pixel Pulse" },
+  { src: song5, name: "Retro Adventure" },
+];
 
 export default function App() {
   const [selected, setSelected] = useState(null);
@@ -58,8 +66,11 @@ export default function App() {
   useEffect(() => {
     // Whenever the song index changes, update audio src and play
     if (audioRef.current) {
-      audioRef.current.src = playlist[currentSongIndex];
+      audioRef.current.src = playlist[currentSongIndex].src;
       audioRef.current.play().catch(() => {});
+
+      // Show Sonner toast
+      toast(`🎵 Now Playing: ${playlist[currentSongIndex].name}`);
     }
   }, [currentSongIndex]);
 
@@ -119,7 +130,10 @@ export default function App() {
       </Dialog>
 
       {/* Hidden audio element for background music */}
-      <audio ref={audioRef} src={playlist[currentSongIndex]} autoPlay loop={false} />
+      <audio ref={audioRef} src={playlist[currentSongIndex].src} autoPlay loop={false} />
+
+      {/* Sonner toast system */}
+      <Toaster position="bottom-center" richColors />
     </div>
   );
 }
