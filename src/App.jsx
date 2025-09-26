@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import PixelImage3D from "./lib/PixelImage3D";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,12 @@ import {
   PixelArtDiiage5,
   PixelArtDiiage6,
   PixelArtDiiage7,
-  PixelArtDiiage8
+  PixelArtDiiage8,
+  song1,
+  song2,
+  song3,
+  song4,
+  song5
 } from "./assets";
 
 // Flatten all works into a single array for the grid
@@ -26,8 +31,37 @@ const works = [
   { id: 8, team: "Les petis poulains", title: "Pari d'Avenir", src: PixelArtDiiage8, description: "Cette oeuvre est soit un une critique de l'avenir incertain dû à l'intelligence articiciel, soit une moquerie des gens qui critique ce dernier en pensant que c'est une fianlité. à méditer", authors: [] }
 ];
 
+// Playlist
+const playlist = [song1, song2, song3, song4, song5];
+
 export default function App() {
   const [selected, setSelected] = useState(null);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleEnded = () => {
+      setCurrentSongIndex((prev) => (prev + 1) % playlist.length);
+    };
+
+    audio.addEventListener("ended", handleEnded);
+    audio.play();
+
+    return () => {
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, [currentSongIndex]);
+
+  useEffect(() => {
+    // Whenever the song index changes, update audio src and play
+    if (audioRef.current) {
+      audioRef.current.src = playlist[currentSongIndex];
+      audioRef.current.play().catch(() => {});
+    }
+  }, [currentSongIndex]);
 
   return (
     <div className="p-6 space-y-6">
@@ -52,8 +86,8 @@ export default function App() {
       </div>
 
       {/* Overlay / Dialog */}
-      <Dialog open={!!selected} onOpenChange={() => setSelected(null)}>
-        <DialogContent className="w-[80vw]">
+      <Dialog className="w-2/3 max-w-[1200px]" open={!!selected} onOpenChange={() => setSelected(null)}>
+        <DialogContent>
           {selected && (
             <>
               <DialogHeader>
@@ -83,6 +117,9 @@ export default function App() {
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Hidden audio element for background music */}
+      <audio ref={audioRef} src={playlist[currentSongIndex]} autoPlay loop={false} />
     </div>
   );
 }
