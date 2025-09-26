@@ -16,7 +16,7 @@ import {
 
 // Flatten all works into a single array for the grid
 const works = [
-  { id: 1, team: "Greenwall", title: "Greenwall", src: PixelArtDiiage1, description: "Les dérives de la montée du numérique", authors: ["Alice", "Bob"] },
+  { id: 1, team: "Greenwall", title: "Déchéance", src: PixelArtDiiage1, description: "Les dérives de la montée du numérique", authors: [] },
   { id: 2, team: "Black Hat", title: "Post Apo", src: PixelArtDiiage5, description: "", authors: [] },
   { id: 3, team: "Black Hat", title: "Cyber Punk", src: PixelArtDiiage6, description: "", authors: [] },
   { id: 4, team: "Dev'Art", title: "AI rt'ificial Dependency", src: PixelArtDiiage4, description: "Vision dystopique de l'évolution de l'IA", authors: [] },
