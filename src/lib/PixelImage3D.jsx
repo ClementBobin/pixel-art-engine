@@ -35,7 +35,8 @@ export default function PixelImage3D({
   src,
   pixelated = true,
   speed = 0.01,
-  background = "#111"
+  background = "#111",
+  rotateSpeed = 0.5
 }) {
   return (
     <Canvas style={{ width: "100%", height: "400px", background }}>
@@ -45,7 +46,7 @@ export default function PixelImage3D({
         enableZoom={true}
         enablePan={false}
         enableRotate={true}
-        rotateSpeed={0.5}
+        rotateSpeed={rotateSpeed}
       />
     </Canvas>
   );
