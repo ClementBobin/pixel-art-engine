@@ -10,18 +10,20 @@ import {
   PixelArtDiiage4,
   PixelArtDiiage5,
   PixelArtDiiage6,
-  PixelArtDiiage7
+  PixelArtDiiage7,
+  PixelArtDiiage8
 } from "./assets";
 
 // Flatten all works into a single array for the grid
 const works = [
   { id: 1, team: "Greenwall", title: "Greenwall", src: PixelArtDiiage1, description: "Les dérives de la montée du numérique", authors: ["Alice", "Bob"] },
-  { id: 2, team: "Black Hat", title: "Post Apo", src: PixelArtDiiage2, description: "", authors: [] },
-  { id: 3, team: "Black Hat", title: "Cyber Punk", src: PixelArtDiiage3, description: "", authors: [] },
-  { id: 4, team: "Dev'Art", title: "AI rtificial Dependency", src: PixelArtDiiage4, description: "Vision dystopique de l'évolution de l'IA", authors: [] },
-  { id: 5, team: "Les MOATs", title: "MG", src: PixelArtDiiage5, description: "Hommage au directeur du Diiage, Michel Girard", authors: [] },
-  { id: 6, team: "Les Flammand", title: "Les Flammand", src: PixelArtDiiage6, description: "Équipe Rose donc le nom paraissait évident, notre équipe a essayé d'innover", authors: [] },
-  { id: 7, team: "Solo", title: "Beautiful Screen Of Diiage", src: PixelArtDiiage7, description: "Ecran qui représente le passé, qui nous permet de ne pas oublie d'où on vient et ce qu'on a surmonté. La future est brillant, lumineux. C'est le Beautif Screen et Diiage.", authors: [] }
+  { id: 2, team: "Black Hat", title: "Post Apo", src: PixelArtDiiage5, description: "", authors: [] },
+  { id: 3, team: "Black Hat", title: "Cyber Punk", src: PixelArtDiiage6, description: "", authors: [] },
+  { id: 4, team: "Dev'Art", title: "AI rt'ificial Dependency", src: PixelArtDiiage4, description: "Vision dystopique de l'évolution de l'IA", authors: [] },
+  { id: 5, team: "Les MOATs", title: "MG", src: PixelArtDiiage3, description: "Hommage au directeur du Diiage, Michel Girard", authors: [] },
+  { id: 6, team: "Les Flammand", title: "Les Flammand", src: PixelArtDiiage2, description: "Équipe Rose donc le nom paraissait évident, notre équipe a essayé d'innover", authors: [] },
+  { id: 7, team: "Red Hat", title: "Beautiful Screen Of Diiage", src: PixelArtDiiage7, description: "Ecran qui représente le passé, qui nous permet de ne pas oublie d'où on vient et ce qu'on a surmonté. La future est brillant, lumineux. C'est le Beautif Screen et Diiage.", authors: [] },
+  { id: 8, team: "Les petis poulains", title: "Pari d'Avenir", src: PixelArtDiiage8, description: "Cette oeuvre est soit un une critique de l'avenir incertain dû à l'intelligence articiciel, soit une moquerie des gens qui critique ce dernier en pensant que c'est une fianlité. à méditer", authors: [] }
 ];
 
 export default function App() {

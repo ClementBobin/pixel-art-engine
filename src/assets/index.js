@@ -6,6 +6,7 @@ import PixelArtDiiage4 from "./PixelArtDiiage4.jpeg";
 import PixelArtDiiage5 from "./PixelArtDiiage5.jpeg";
 import PixelArtDiiage6 from "./PixelArtDiiage6.jpeg";
 import PixelArtDiiage7 from "./PixelArtDiiage7.jpeg";
+import PixelArtDiiage8 from "./PixelArtDiiage8.jpeg";
 
 // Exporting image assets
 export {
@@ -15,5 +16,6 @@ export {
     PixelArtDiiage4,
     PixelArtDiiage5,
     PixelArtDiiage6,
-    PixelArtDiiage7
+    PixelArtDiiage7,
+    PixelArtDiiage8
 };
